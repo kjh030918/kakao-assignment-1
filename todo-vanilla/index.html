@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="app">
+        <section class="todo-card">
+            <h1>Todo List</h1>
+
+            <!-- 주간 이동 영역 -->
+            <div class="week-header">
+                <button id="prev-week-button" class="week-arrow-button" type="button">
+                    ◀
+                </button>
+
+                <strong id="week-range-text" class="week-range-text"></strong>
+
+                <button id="next-week-button" class="week-arrow-button" type="button">
+                    ▶
+                </button>
+            </div>
+
+            <!-- 월요일부터 일요일까지 날짜 카드가 표시되는 영역 -->
+            <div id="week-days" class="week-days"></div>
+
+            <!-- Todo 입력 영역 -->
+            <form id="todo-form" class="todo-form">
+                <input id="todo-input" type="text" placeholder="할 일을 입력하세요" autocomplete="off" />
+                <button type="submit">추가</button>
+            </form>
+
+            <!-- 입력값이 비어 있을 때 안내 메시지를 표시하는 영역 -->
+            <p id="message" class="message"></p>
+
+            <!-- 상태별 필터 탭 영역 -->
+            <div class="filter-tabs">
+                <button class="filter-button active" type="button" data-filter="all">
+                    전체
+                </button>
+                <button class="filter-button" type="button" data-filter="active">
+                    진행 중
+                </button>
+                <button class="filter-button" type="button" data-filter="completed">
+                    완료
+                </button>
+            </div>
+
+            <!-- 생성된 Todo 목록이 표시되는 영역 -->
+            <ul id="todo-list" class="todo-list"></ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
