@@ -5,26 +5,25 @@
 import { useState } from "react"
 
 function TodoForm({ onAdd }) {
-    const [input, setInput] = useState("")
+    const [text, setText] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
-        onAdd(input)
-        setInput("")
+        onAdd(text)
+        setText("")
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex gap-2 mb-2">
+        <form onSubmit={handleSubmit} className="flex mb-6">
             <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
                 placeholder="할 일을 입력하세요"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-[10px] text-sm focus:outline-none focus:border-[#672be0]"
-            />
+                className="flex-1 h-[54px] border border-gray-200 focus:border-[#672be0] rounded-l-[20px] px-5 text-gray-700 outline-none placeholder:text-gray-300 transition" />
+
             <button
                 type="submit"
-                className="px-4 bg-[#672be0] text-white font-bold rounded-[10px] hover:opacity-90"
+                className="w-[95px] h-[54px] bg-[#672be0] text-white font-bold rounded-r-[20px]"
             >
                 추가
             </button>

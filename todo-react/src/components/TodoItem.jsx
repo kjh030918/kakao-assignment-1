@@ -23,7 +23,8 @@ function TodoItem({ todo, onToggle, onUpdate, onDelete }) {
                     type="text"
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
-                    className="flex-1 px-2 py-1 border border-[#672be0] rounded text-sm focus:outline-none"
+                    className="flex-1 h-[36px] px-2 py-1 border border-[#672be0] rounded-xl text-sm focus:outline-none"
+
                 />
             ) : (
                 // 일반 모드: 텍스트 표시
@@ -38,13 +39,16 @@ function TodoItem({ todo, onToggle, onUpdate, onDelete }) {
                     <>
                         <button
                             onClick={handleUpdate}
-                            className="px-2 py-1 bg-[#672be0] text-white text-xs font-bold rounded-lg hover:opacity-90"
+                            className="px-4 py-2 rounded-full bg-[#672be0] text-white shadow-md text-xs font-bold hover:opacity-90"
                         >
-                            저장
+                            확인
                         </button>
                         <button
-                            onClick={() => setIsEditing(false)}
-                            className="px-2 py-1 bg-gray-300 text-white text-xs font-bold rounded-lg hover:opacity-90"
+                            onClick={() => {
+                                setEditText(todo.text)
+                                setIsEditing(false)
+                            }}
+                            className="px-4 py-2 rounded-full bg-[#f0eafc] text-[#b99df3] text-xs font-bold hover:opacity-90"
                         >
                             취소
                         </button>
@@ -54,19 +58,26 @@ function TodoItem({ todo, onToggle, onUpdate, onDelete }) {
                     <>
                         <button
                             onClick={() => onToggle(todo.id)}
-                            className="px-2 py-1 bg-[#672be0] text-white text-xs font-bold rounded-lg hover:opacity-90"
+                            className={`px-4 py-2 rounded-full text-xs font-bold hover:opacity-90 transition ${todo.completed
+                                ? "bg-[#f0eafc] text-[#b99df3]"
+                                : "bg-[#672be0] text-white shadow-md"
+                                }`}
                         >
-                            {todo.completed ? "취소" : "완료"}
+                            완료
                         </button>
                         <button
-                            onClick={() => setIsEditing(true)}
-                            className="px-2 py-1 bg-[#672be0] text-white text-xs font-bold rounded-lg hover:opacity-90"
+                            onClick={() => {
+                                setEditText(todo.text)
+                                setIsEditing(true)
+                            }}
+                            className="px-4 py-2 rounded-full bg-[#f0eafc] text-[#b99df3] text-xs font-bold hover:opacity-90"
                         >
                             수정
                         </button>
                         <button
+                            type="button"
                             onClick={() => onDelete(todo.id)}
-                            className="px-2 py-1 bg-[#672be0] text-white text-xs font-bold rounded-lg hover:opacity-90"
+                            className="px-4 py-2 rounded-full bg-gray-900 text-white text-xs font-bold"
                         >
                             삭제
                         </button>
