@@ -1,3 +1,11 @@
 node_modules/
 todo-vanilla/node_modules/
+.DS_Storetodo-nextjs/backend/.venv/
+todo-nextjs/backend/__pycache__/
+todo-nextjs/backend/todos.db
+todo-nextjs/backend/.env.local
+todo-nextjs/frontend/.env.local
+todo-nextjs/frontend/.next/
+todo-nextjs/frontend/node_modules/
 .DS_Store
+todo-nextjs/backend/.venv/
